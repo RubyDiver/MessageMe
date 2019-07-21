@@ -1,0 +1,48 @@
+<section id="main-header">
+  <div class="container">
+    <div class="row justify-content-center mt-3">
+      <a style="text-align: center">
+        <i class="fas fa-coffee fa-3x "></i><br>
+        <h4>Say Something</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="chatbox">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body" id="messages">
+            <div class="media-body" id="message-container">
+              <%= render @messages %>
+            </div>
+          </div>
+          <div class="card-footer">
+            <%= form_for(@message, html: {class: "input-group", role: "form"}, url: message_path, remote: true) do |f| %>
+                <%= f.text_field :body, class: "form-control", placeholder: "Enter a message..." %>
+              <div class="input-group-append">
+                  <%= f.button '<i class="fas fa-paper-plane"></i>'.html_safe %>
+              </div>
+            <% end %>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="list-group ">
+                <a class="list-group-item list-group-item-dark list-group-item-action active">Home</a>
+                <a class="list-group-item list-group-item-dark list-group-item-action">Messages</a>
+                <a class="list-group-item list-group-item-dark list-group-item-action">Friends</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
